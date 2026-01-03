@@ -354,9 +354,28 @@ The validation script reports PW-Lambda correlation coefficients:
 - May indicate false correlations
 - Check for data quality issues
 
+## Performance
+
+### Parallel Processing
+
+For analyzing multiple log files, use the parallelized meta-analysis:
+
+```bash
+node meta_analysis_parallel.js
+```
+
+**Performance Comparison:**
+- **Sequential (`meta_analysis.js`):** ~60+ seconds for 25 files
+- **Parallel (`meta_analysis_parallel.js`):** **~0.8 seconds for 25 files**
+- **Speedup:** Approximately **75× faster**
+
+The parallel version automatically uses all available CPU cores for maximum performance.
+
 ## Files
 
 - `analyze_lambda_delay.js` - Main analysis program
+- `meta_analysis_parallel.js` - **Parallel multi-file analysis (recommended)**
+- `meta_analysis.js` - Sequential multi-file analysis
 - `test_thresholds.js` - Threshold sensitivity analysis
 - `validate_delays.js` - Delay accuracy validation
 - `compare_thresholds.js` - Detailed threshold comparison
