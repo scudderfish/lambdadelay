@@ -256,7 +256,31 @@ processFilesInParallel()
       }
     }
 
-    // Display master table
+    // Calculate average RPM and Load axis values across all files
+    const rpmAxisValues = [[], [], []];
+    const loadAxisValues = [[], [], []];
+
+    for (const result of allResults) {
+      if (result.rpmBoundaries && result.loadBoundaries) {
+        for (let i = 0; i < 3; i++) {
+          const rpmMid = (result.rpmBoundaries[i] + result.rpmBoundaries[i + 1]) / 2;
+          const loadMid = (result.loadBoundaries[i] + result.loadBoundaries[i + 1]) / 2;
+          rpmAxisValues[i].push(rpmMid);
+          loadAxisValues[i].push(loadMid);
+        }
+      }
+    }
+
+    const rpmAxis = [];
+    const loadAxis = [];
+    for (let i = 0; i < 3; i++) {
+      const avgRpm = rpmAxisValues[i].reduce((a, b) => a + b, 0) / rpmAxisValues[i].length;
+      const avgLoad = loadAxisValues[i].reduce((a, b) => a + b, 0) / loadAxisValues[i].length;
+      rpmAxis.push(Math.round(avgRpm));
+      loadAxis.push(Math.round(avgLoad));
+    }
+
+    // Display master table (human readable)
     console.log('RPM\\Load    Low         Medium      High');
     console.log('-'.repeat(50));
     const rpmLabels = ['Low', 'Medium', 'High'];
@@ -271,6 +295,24 @@ processFilesInParallel()
       }
       console.log(line);
     }
+
+    // Display code-ready format
+    console.log('\n' + '='.repeat(100));
+    console.log('\nCode Format (ready to use):\n');
+
+    console.log('const defaultLambdaDelayTable = [');
+    for (let i = 0; i < 3; i++) {
+      const row = [];
+      for (let j = 0; j < 3; j++) {
+        row.push(masterTable[i][j] !== null ? Math.round(masterTable[i][j]) : 0);
+      }
+      const rowStr = '    [' + row.join(', ') + ']';
+      console.log(rowStr + (i < 2 ? ',' : ''));
+    }
+    console.log('];');
+    console.log('');
+    console.log(`const defaultLDRPM = [${rpmAxis.join(', ')}];`);
+    console.log(`const defaultLDLoad = [${loadAxis.join(', ')}];`);
 
     // Cross-validation
     console.log('\n' + '='.repeat(100));
