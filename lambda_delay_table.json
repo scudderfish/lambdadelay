@@ -1,0 +1,163 @@
+{
+  "metadata": {
+    "sourceFile": "example/2025-07-09_11-35-15.msl",
+    "generatedAt": "2026-01-03T09:54:48.369Z",
+    "totalDataPoints": 27318,
+    "config": {
+      "MIN_RPM": 500,
+      "MIN_PW": 1,
+      "PW_CHANGE_THRESHOLD": 0.5,
+      "LAMBDA_CHANGE_THRESHOLD": 0.05,
+      "MAX_DELAY_MS": 2000,
+      "BUCKET_COUNT": 3
+    }
+  },
+  "rpmAxis": [
+    1006,
+    1655,
+    3124
+  ],
+  "loadAxis": [
+    24,
+    37,
+    69
+  ],
+  "boundaries": {
+    "rpm": [
+      599,
+      1412,
+      1898,
+      4350
+    ],
+    "load": [
+      14,
+      33,
+      41,
+      97
+    ]
+  },
+  "delayTable": [
+    {
+      "rpm": 1006,
+      "load": [
+        24,
+        37,
+        69
+      ],
+      "delays": [
+        null,
+        null,
+        646.5
+      ]
+    },
+    {
+      "rpm": 1655,
+      "load": [
+        24,
+        37,
+        69
+      ],
+      "delays": [
+        null,
+        558,
+        240.5
+      ]
+    },
+    {
+      "rpm": 3124,
+      "load": [
+        24,
+        37,
+        69
+      ],
+      "delays": [
+        282.5,
+        159,
+        269
+      ]
+    }
+  ],
+  "detailedBuckets": [
+    {
+      "rpmBucket": 0,
+      "loadBucket": 0,
+      "dataPoints": 2450,
+      "delayMeasurements": 0,
+      "medianDelay": null,
+      "minDelay": null,
+      "maxDelay": null
+    },
+    {
+      "rpmBucket": 0,
+      "loadBucket": 1,
+      "dataPoints": 3806,
+      "delayMeasurements": 0,
+      "medianDelay": null,
+      "minDelay": null,
+      "maxDelay": null
+    },
+    {
+      "rpmBucket": 0,
+      "loadBucket": 2,
+      "dataPoints": 2820,
+      "delayMeasurements": 14,
+      "medianDelay": 646.5,
+      "minDelay": 103,
+      "maxDelay": 1835
+    },
+    {
+      "rpmBucket": 1,
+      "loadBucket": 0,
+      "dataPoints": 3758,
+      "delayMeasurements": 0,
+      "medianDelay": null,
+      "minDelay": null,
+      "maxDelay": null
+    },
+    {
+      "rpmBucket": 1,
+      "loadBucket": 1,
+      "dataPoints": 2688,
+      "delayMeasurements": 2,
+      "medianDelay": 558,
+      "minDelay": 421,
+      "maxDelay": 695
+    },
+    {
+      "rpmBucket": 1,
+      "loadBucket": 2,
+      "dataPoints": 2678,
+      "delayMeasurements": 14,
+      "medianDelay": 240.5,
+      "minDelay": 39,
+      "maxDelay": 404
+    },
+    {
+      "rpmBucket": 2,
+      "loadBucket": 0,
+      "dataPoints": 2891,
+      "delayMeasurements": 8,
+      "medianDelay": 282.5,
+      "minDelay": 147,
+      "maxDelay": 1383
+    },
+    {
+      "rpmBucket": 2,
+      "loadBucket": 1,
+      "dataPoints": 1824,
+      "delayMeasurements": 2,
+      "medianDelay": 159,
+      "minDelay": 86,
+      "maxDelay": 232
+    },
+    {
+      "rpmBucket": 2,
+      "loadBucket": 2,
+      "dataPoints": 4403,
+      "delayMeasurements": 29,
+      "medianDelay": 269,
+      "minDelay": 38,
+      "maxDelay": 1919
+    }
+  ]
+}
